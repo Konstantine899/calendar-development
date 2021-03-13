@@ -18,20 +18,13 @@
   },
   "plugins": ["react", "import", "react-hooks"],
   "ignorePatterns": ["node_modules/"],
-  "rules": {},
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
   "settings": {
     "react": {
       "version": "latest" // "detect" automatically picks the version you have installed.
     }
-  },
-
-  "plugins": [
-    // ...
-    "react-hooks"
-  ],
-  "rules": {
-    // ...
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
   }
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export const InputM1 = () => {
-  const [valueState, setState] = useState();
+  const [valueState, setState] = useState('');
 
   const changeValue = ({ target }) => {
     const value = target.value;
