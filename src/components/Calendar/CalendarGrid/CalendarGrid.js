@@ -30,7 +30,6 @@ const CalendarGrid = ({ startDay, today }) => {
 
   return (
     <>
-      <h1>{type}</h1>
       <GridWrapper className="GridWrapper" isHeader>
         {[...Array(7)].map((_, i) => (
           <CellWrapper isHeader key={i}>
@@ -46,7 +45,7 @@ const CalendarGrid = ({ startDay, today }) => {
       </GridWrapper>
       <GridWrapper className="GridWrapper">
         {daysArray.map((dayItem, i) => {
-          const clickHandler = () => console.log(dayItem.unix());
+          const clickHandler = () => console.log(dayItem.format('DD.MM.YY'));
 
           return (
             <CellWrapper
@@ -58,7 +57,6 @@ const CalendarGrid = ({ startDay, today }) => {
             >
               <div className="indexItem">
                 <div className="RowInCell">
-                  {i}
                   <div className="DayWrapper">
                     {!isCurrentDay(dayItem) && dayItem.format('D')}
                     {isCurrentDay(dayItem) && (
