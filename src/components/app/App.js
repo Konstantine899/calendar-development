@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Calendar } from '../Calendar/Calendar.js';
-// import { InputQ1 } from '../Form/Input/InputQ1/InputQ1';
+import { Step1 } from '../Form/Step1';
 import './App.scss';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Calendar} />
-          {/* <Route path="/form" component={InputQ1} /> */}
+          <Route path="/form" component={Step1} />
         </Switch>
       </Router>
     </>
