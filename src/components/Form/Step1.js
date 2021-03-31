@@ -1,15 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Typography } from '@material-ui/core';
+
 import { FormContainer } from './FormContainer';
 import { Form } from './Form';
 import { Grid } from '@material-ui/core';
+import { TextareaAutosize } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 
 import { Input } from './Input';
+
 import { PrimaryButton } from './PrimaryButton.js';
-import { clickHandler } from '../Calendar/CalendarGrid';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: theme.spacing(90),
+  },
+}));
 
 export const Step1 = () => {
+  const styles = useStyles();
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
   });
@@ -20,10 +29,6 @@ export const Step1 = () => {
 
   return (
     <FormContainer>
-      <Typography component="h2" variant="h5">
-        Ввод показаний со счетчика
-      </Typography>
-      <p> День:{clickHandler}</p>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={3}>
           <Grid item xs={6}>
@@ -54,6 +59,13 @@ export const Step1 = () => {
               type="number"
               label="Введите M1"
               name="M1"
+            />
+            <Input
+              ref={register}
+              id="WorkDevice"
+              type="number"
+              label="Время работы прибора"
+              name="WorkDevice"
             />
           </Grid>
 
@@ -86,23 +98,28 @@ export const Step1 = () => {
               label="Введите M2"
               name="M2"
             />
+            <Input
+              ref={register}
+              id="WorkDeviceError"
+              type="number"
+              label="Время работы прибора с ошибкой"
+              name="WorkDeviceError"
+            />
+          </Grid>
+
+          <Grid item xs={12}>
+            <TextareaAutosize
+              className={styles.root}
+              ref={register}
+              id="TextArea"
+              type="text"
+              placeholder="Введите ваш комментарий"
+              name="TextArea"
+              rowsMin={10}
+            />
           </Grid>
         </Grid>
 
-        <Input
-          ref={register}
-          id="WorkDevice"
-          type="number"
-          label="Время работы прибора"
-          name="WorkDevice"
-        />
-        <Input
-          ref={register}
-          id="WorkDeviceError"
-          type="number"
-          label="Время работы прибора с ошибкой"
-          name="WorkDeviceError"
-        />
         <PrimaryButton>Отправить</PrimaryButton>
       </Form>
     </FormContainer>
