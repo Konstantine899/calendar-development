@@ -3,8 +3,6 @@ import moment from 'moment';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { useData } from '../../../Context/Data.Context.js';
-
 import styled from 'styled-components';
 import './CalendarGrid.scss';
 
@@ -22,7 +20,6 @@ const CellWrapper = styled.div`
 const CurrentDay = styled('div')``;
 
 const CalendarGrid = ({ startDay, today }) => {
-  const { data, setValues } = useData();
   const history = useHistory();
 
   const day = startDay.clone().subtract(1, 'day');
@@ -50,11 +47,10 @@ const CalendarGrid = ({ startDay, today }) => {
       </GridWrapper>
       <GridWrapper className="GridWrapper">
         {daysArray.map((dayItem, i) => {
-          const clickHandler = (data) => {
+          const clickHandler = () => {
             const clickDate = dayItem.format('DD.MM.YY');
             console.log(clickDate);
             history.push('/form');
-            setValues(data);
           };
 
           return (

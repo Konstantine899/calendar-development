@@ -10,6 +10,9 @@ import { makeStyles } from '@material-ui/core';
 import { Input } from './Input';
 
 import { PrimaryButton } from './PrimaryButton.js';
+import { useDispatch } from 'react-redux';
+
+import { setFormDataAction } from '../../store/form/form.actions';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,12 +22,14 @@ const useStyles = makeStyles((theme) => ({
 
 export const Step1 = () => {
   const styles = useStyles();
+  const dispatch = useDispatch();
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
   });
 
   const onSubmit = (data) => {
     console.log(data);
+    dispatch(setFormDataAction(data));
   };
 
   return (
