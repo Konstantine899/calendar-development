@@ -1,18 +1,18 @@
 import React from 'react';
-import { useForm } from 'react-hook-form';
-
-import { FormContainer } from './FormContainer';
-import { Form } from './Form';
 import { Grid } from '@material-ui/core';
 import { TextareaAutosize } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 
-import { Input } from './Input';
-
-import { PrimaryButton } from './PrimaryButton.js';
 import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
 
-import { setFormDataAction } from '../../store/form/form.actions';
+import { setFormDataAction } from '../../redux/actions/form.action.js';
+
+import { FormContainer } from './FormContainer';
+import { Form } from './Form';
+import { HeaderDateCalendar } from './HeaderDateCalendar';
+import { Input } from './Input';
+import { PrimaryButton } from './PrimaryButton.js';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +34,7 @@ export const Step1 = () => {
 
   return (
     <FormContainer>
+      <HeaderDateCalendar />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Grid container spacing={3}>
           <Grid item xs={6}>

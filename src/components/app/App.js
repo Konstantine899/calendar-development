@@ -2,7 +2,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { rootReducer } from '../../store/root.reducer.js';
+import { rootReducer } from '../../redux/reducers/root.reducer.js';
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 

@@ -6,7 +6,7 @@ import Header from './Header';
 // import Header from '../Header/Header.js';
 import Monitor from './Monitor';
 import CalendarGrid from './CalendarGrid';
-import { HeaderCalendarDescription } from '../HeaderCalendarDescription/HeaderCalendarDescription';
+import { HeaderCalendarDescription } from './HeaderCalendarDescription/HeaderCalendarDescription.js';
 
 const FormCalendarWrapper = styled('div')``;
 const ShadowWrapper = styled('div')``;
